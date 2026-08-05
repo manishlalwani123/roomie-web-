@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='1.css') }}">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav a {
+      padding: 40px;
+      text-decoration: none;
+    }
+</style>
+<body style="margin-top:7px; background-image: linear-gradient(skyblue, #163760);">
+    <nav>
+        <a href="#"><b>LOGO</b></a>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact Us</a>
+        <a href="{{url_for('signup')}}"><button id="signup-btn">Sign Up</button></a>
+    </nav>
+    
+    <div class="login-form" style="background-color: white; height: 475px; width: 500px; padding-top: 20px; padding-left: 50px; padding-right: 50px; border-radius: 30px;padding-bottom:0px">
+        <h2 style="color: #163760;"><center>PERSONAL INFORMATION</center></h2><br>
+        <form action="/addinfo" method="POST">
+            <div style=" display: flex; align-items: center;">
+                <label for="department" style="color: rgb(86, 83, 83); flex: 1;">Department:</label>
+                <label for="year_of_study" style="color: rgb(86, 83, 83); flex: 1;">Year of Study:</label>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <input type="text" name="department" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+                <input type="text" name="year_of_study" style="flex: 1; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            </div>
+            <br>
+            <div style="margin-top: 6px; display: flex; align-items: center;">
+                <label for="phone_no" style="color: rgb(86, 83, 83); flex: 1;">Phone no:</label>
+                <label for="gender" style="color: rgb(86, 83, 83); flex: 1;">Gender:</label>
+                <label for="dob" style="color: rgb(86, 83, 83); flex: 1;">Date of birth:</label>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <input type="text" name="phone_no" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+                <select name="gender" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);">
+                    <option value="">Select</option> <!-- Blank option -->
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="date" name="dob" style="flex: 1; width: 140px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            </div>
+            <br>
+            <div style="margin-top: 6px; display: flex; align-items: center;">
+                <label for="district" style="color: rgb(86, 83, 83); flex: 1;">District:</label>
+                <label for="state" style="color: rgb(86, 83, 83); flex: 1;">State:</label>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <select name="district" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);">
+                    <option value="">Select</option> <!-- Blank option -->
+                    <option value="district1">Ambala</option>
+                    <option value="district2">Punchkula</option>
+                    <option value="district3">Hissar</option>
+                    <option value="district3">Rohtak</option>
+                    <option value="district3">Other</option>
+                </select>
+                <select name="state" style="flex: 1; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow:5px 5px 10px rgba(0, 0, 0, 0.1);">
+                <option value="">Select</option> <!-- Blank option -->
+                <option value="state1">Haryana</option>
+                <option value="state2">Bihar</option>
+                <option value="state3">Punjab</option>
+                <option value="state3">Other</option>
+            </select>
+        </div>
+        <br>
+        <div style="margin-top: 20px; text-align: right;">
+            <button type="submit" style="background-color: #163760; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Next</button>
+        </div>
+        <br>
+    </form>
+</div>
+</body>
+</html>

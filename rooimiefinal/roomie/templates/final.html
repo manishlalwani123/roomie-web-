@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='2.css') }}">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav a {
+      padding: 40px;
+      text-decoration: none;
+    }
+</style>
+<body style="margin-top:7px; background-image: linear-gradient(skyblue, #163760);">
+    <nav>
+        <a href="#"><b>LOGO</b></a>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact Us</a>
+        <a href="{{url_for('signup')}}"><button id="signup-btn">Sign Up</button></a>
+      </nav><br>
+    
+
+      <div class="login-form" style="background-color: white; height: 200px; width: 400px; margin-top:100px; padding-top: 20px; padding-left: 50px; padding-right: 50px; border-radius: 30px;padding-bottom:0px">
+       <h2 style="color:#163760; margin-top:25px"><center>Congratulations !!!!</center></h2>
+       <p><center>Your profile is complete now. Now you can begin <br> your journey of finding the perfect roomie.</center></p>
+       <p><center>Check others <a href="{{url_for('login')}}" style="text-decoration:underline; color:rgb(17, 217, 217)">Login</a></center></p>
+</div>

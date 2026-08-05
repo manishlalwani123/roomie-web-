@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='2.css') }}">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            background-color:white;
+            width: 100%;
+            padding: 20px 0;
+            color: #163760;
+            text-align: center;
+        }
+
+        nav a {
+            padding: 40px;
+            text-decoration: none;
+            color:#163760;
+        }
+
+        .user-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .user-options a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .user-options a:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Recommendations Section */
+        #recommendations {
+            background-color: skyblue;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            width:700px;
+            border-radius:20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: white;
+            width:670px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row; /* Changed from column to row */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Profile Picture Icon Styles */
+        .profile-icon {
+            margin-right: 10px; /* Adjusted margin to separate from content */
+            text-align: left; /* Aligned to the left */
+        }
+
+        .profile-icon i {
+            font-size: 80px; /* Reduced size */
+            color: #163760;
+        }
+
+        /* See More Button Styles */
+        .see-more-button button {
+            background-color: white;
+            color: red;
+            border: 2px solid red;
+            border-radius: 5px;
+            padding: 7px 15px;
+            cursor: pointer;
+            /* width: 100%; */ /* Removed width to allow button to expand */
+        }
+
+        .see-more-button button:hover {
+            background-color: red;
+            color: white;
+        }
+
+        /* Card Content Styles */
+        .card-content {
+            flex-grow: 1;
+            padding-left: 20px;
+            text-align: left; /* Aligned content to the left */
+        }
+
+        .card-content h6 {
+            margin-top: 0; /* Removed margin */
+            font-size: 18px; /* Increased font size */
+            font-weight: bold; /* Increased font weight */
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 16px; /* Increased font size */
+        }
+
+        .card-content p span {
+            margin-right: 10px;
+        }
+
+        .quote {
+    margin-top: 10px; /* Added margin between content and quote */
+    font-style: italic;
+    text-align: center; /* Centered the quote */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#"><b>LOGO</b></a>
+        <a href="home.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact Us</a>
+        <i class="fas fa-bell fa-lg" style="color:#163760;"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fas fa-user fa-lg" id="user-icon" style="color:#163760; cursor:pointer;"></i>
+        <div class="user-options" id="user-options">
+            <a href="#"><i class="fas fa-user fa-sm"></i> User Profile</a>
+            <a href="home.html"><i class="fas fa-sign-out-alt fa-sm"></i> Log Out</a>
+        </div>
+    </nav>
+
+    <div>
+        <h1 style="margin-right:420px; margin-top:30px"><b>Recommendations</b></h1>
+    </div>
+
+    <!-- Recommendations Section -->
+    <section id="recommendations">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="profile-icon">
+                <!-- Profile picture icon from Font Awesome -->
+                <i class="fas fa-user-circle fa-5x"></i><br><br>
+                <div class="see-more-button">
+                    <!-- "See More" button -->
+                    <button>See More</button>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <!-- Card content here -->
+                <p style="margin-left:25px"><B>Name:</B> Aarav</p>
+                <p style="margin-left:25px"><b>Age:</b> 18</p>
+                <p style="margin-left:25px"><b>Department:</b> CSE</p>
+                <div class="quote" style="margin-left:22px">"Looking for a roommate: tidy, laid-back, into exploring.I <br> believe in clear communication and mutual respect. Let's <br> grab coffee and see if we vibe!"</div>
+            </div>
+            
+        </div><br>
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="profile-icon">
+                <!-- Profile picture icon from Font Awesome -->
+                <i class="fas fa-user-circle fa-5x"></i><br><br>
+                <div class="see-more-button">
+                    <!-- "See More" button -->
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="card-content">
+                <!-- Card content here -->
+                <p style="margin-left:25px"><B>Name:</B> Rohan</p>
+                <p style="margin-left:25px"><b>Age:</b> 19</p>
+                <p style="margin-left:25px"><b>Department:</b> BCOM</p>
+                <div class="quote" style="margin-left:22px">"Hey, I am Rohan, a BCOM student. Searching for a roommate<br> for next term. Easygoing, organized, and always up for a<br>good time. Let's connect and see if we'd make a great team!"</div>
+            </div>
+        </div><br>
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="profile-icon">
+                <!-- Profile picture icon from Font Awesome -->
+                <i class="fas fa-user-circle fa-5x"></i><br><br>
+                <div class="see-more-button">
+                    <!-- "See More" button -->
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="card-content">
+                <!-- Card content here -->
+                <p style="margin-left:25px"><B>Name:</B> Kishan</p>
+                <p style="margin-left:25px"><b>Age:</b> 21</p>
+                <p style="margin-left:25px"><b>Department:</b> Economics</p>
+                <div class="quote" style="margin-left:22px">"Hey, I am Kishan a chill third-year Ecom student. Looking for <br> a roommate for next semester. Clean, easygoing and into <br> exploring. Let's chat and see if we click!"</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('user-icon').addEventListener('click', function() {
+            var userOptions = document.getElementById('user-options');
+            if (userOptions.style.display === 'block') {
+                userOptions.style.display = 'none';
+            } else {
+                userOptions.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

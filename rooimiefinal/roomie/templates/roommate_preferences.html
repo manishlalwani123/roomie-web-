@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='1.css') }}">
+    <title>Roommate Preferences</title>
+    <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav a {
+            padding: 30px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="margin-top:3px; background-image: linear-gradient(skyblue, #163760);">
+<nav>
+    <a href="#"><b>LOGO</b></a>
+    <a href="{{url_for('index')}}">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Services</a>
+    <a href="#">Contact Us</a>
+    <a href="{{url_for('signup')}}"><button id="signup-btn">Sign Up</button></a>
+</nav>
+
+<div class="login-form" style="background-color: white; height: 550px; width: 500px; padding-top: 10px; padding-left: 50px; padding-right: 50px; border-radius: 30px;padding-bottom:10px">
+    <h2 style="color: #163760;"><center>ROOMMATE PREFERENCES</center></h2>
+    <form action="/roommate_preferences" method="POST">
+        <div style=" display: flex; align-items: center;">
+            <label for="" style="color: rgb(86, 83, 83); flex: 1;">Department:</label>
+            <label for="" style="color: rgb(86, 83, 83); flex: 1;">Year of Study:</label>
+        </div>
+        <br>
+        <div style="display: flex; align-items: center;">
+            <input type="text" name="department" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            <input type="text" name="year_of_study" style="flex: 1; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+        </div>
+        <br>
+        <div style="margin-top: 6px; display: flex; align-items: center;">
+            <label for="" style="color: rgb(86, 83, 83); flex: 1;">Sleep Schedule:</label>
+            <label for="" style="color: rgb(86, 83, 83); flex: 1;">Gender:</label>
+            <label for="" style="color: rgb(86, 83, 83); flex: 1;">State:</label>
+        </div>
+        <br>
+        <div style="display: flex; align-items: center;">
+            <input type="text" name="sleep_schedule" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            <select name="gender" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);">
+                <option value="">Select</option> <!-- Blank option -->
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="text" name="state" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+        </div>
+        <div style="margin-top: 16px;">
+            <label for="" style="color: rgb(86, 83, 83);">Lifestyle Preferences:</label>
+        </div>
+        <br>
+        <div style="display: flex;">
+            <div style="flex: 1;">
+                <input type="checkbox" id="amenity1" name="amenity1">
+                <label for="amenity1">Non-smoker</label><br>
+                <input type="checkbox" id="amenity2" name="amenity2">
+                <label for="amenity2">Can cook</label><br>
+                <input type="checkbox" id="amenity3" name="amenity3">
+                <label for="amenity3">Vegetarian</label>
+            </div>
+            <div style="flex: 1;">
+                <input type="checkbox" id="amenity4" name="amenity4">
+                <label for="amenity4">Buying shared amenities</label><br>
+                <input type="checkbox" id="amenity5" name="amenity5">
+                <label for="amenity5">Pet-friendly</label><br>
+                <input type="checkbox" id="amenity6" name="amenity6">
+                <label for="amenity6">Cares about cleanliness</label>
+            </div>
+        </div>
+        <br>
+        <div style="margin-top: 16px;">
+            <label for="" style="color: rgb(86, 83, 83);">Write about any other requirement:</label>
+            <br>
+            <textarea name="other_requirements" rows="4" style="width: 100%; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder=""></textarea>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" style="background-color: #163760; color: white; height:40px; width:120px; padding: 10px 25px; border-radius: 40px; text-decoration: none;">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

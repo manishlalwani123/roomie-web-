@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Records</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        tr:hover td {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+
+        a:hover {
+            color: #0056b3;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        @media screen and (max-width: 600px) {
+            table,
+            th,
+            td {
+                display: block;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+            th {
+                text-align: center;
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            td {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            a {
+                width: auto;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>User Records</h1>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>CUCHD ID</th>
+            <th>Department</th>
+            <th>Year of Study</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+        {% for user in user_records %}
+        <tr>
+            <td>{{ user.fullname }}</td>
+            <td>{{ user.cuchd_id }}</td>
+            <td>{{ user.department }}</td>
+            <td>{{ user.year_of_study }}</td>
+            <td>{{ user.phone_no }}</td>
+            <td>{{ user.gender }}</td>
+            <td><a href="{{ url_for('user_account', cuchd_id=user.cuchd_id) }}">Show User Profile</a></td>
+        </tr>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    </form>
+    <form action="{{ url_for('logout') }}" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>

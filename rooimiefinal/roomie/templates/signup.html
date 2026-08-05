@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Responsive Header</title>
+  <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav a {
+      padding: 40px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body style="margin-top:7px; background-image: linear-gradient(skyblue, #163760);"> 
+  <nav>
+    <a href="#"><b>LOGO</b></a>
+    <a href="{{url_for('index')}}">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Services</a>
+    <a href="#">Contact Us</a>
+    <a href="{{ url_for('login') }}">Log In</a>
+  </nav><br>
+
+  <!--form-->
+  <div class="login-form">
+    <form action="/signup" method="POST">
+        <h2><center>SIGN UP <i class="fa-solid fa-user-tie" style="margin-left:5px"></i></center></h2>
+        
+        <input type="text" name="fullname" style="color:#163760; box-shadow: 5px 5px 10px rgba(0,0,0,0.1);margin-top:6px" placeholder="Full Name" required>
+        <br>
+        <input type="text" name="cuchd_id" style="box-shadow: 5px 5px 10px rgba(0,0,0,0.1); margin-top:6px" placeholder="CUCHD ID" required>
+        <br>
+        <input type="password" name="password" style="box-shadow: 5px 5px 10px rgba(0,0,0,0.1);margin-top:6px" placeholder="Password" required>
+        <br>
+        <button type="submit" style="box-shadow: 5px 5px 10px rgba(0,0,0,0.1);margin-top:6px">Sign Up</button>
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </form>
+    <div class="signup-link">
+        <span>Already registered? </span><a href="{{ url_for('login') }}">Log In</a>
+    </div>
+</div>
+
+
+</body>
+</html>

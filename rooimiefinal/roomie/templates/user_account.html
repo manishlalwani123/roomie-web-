@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        /* Container Styles */
+       .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* User Details Styles */
+       .user-details {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+       .user-details h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Profile Picture Styles */
+       .profile-picture {
+            max-width: 200px;
+            margin-top: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Profile Picture Caption Styles */
+       .profile-picture-caption {
+            margin-top: 5px;
+            font-style: italic;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Section Styles */
+       .user-personal-info,.user-room-preferences,.user-roommate-preferences,.user-profile {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Label Styles */
+        strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+           .container {
+                padding: 10px;
+            }
+           .user-details,.user-personal-info,.user-room-preferences,.user-roommate-preferences,.user-profile {
+                padding: 10px;
+            }
+        }
+    </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>User Account Information</h1>
+
+        <div class="user-details">
+            <h2>User Details</h2>
+            <div>
+                <p><strong>Full Name:</strong> {{ user.fullname }}</p>
+                <p><strong>CUCHD ID:</strong> {{ user.cuchd_id }}</p>
+            </div>
+        </div>
+
+        <div class="user-personal-info">
+            <h2>User Personal Information</h2>
+            <div>
+                <p><strong>Department:</strong> {{ personal_info.department }}</p>
+                <p><strong>Year of Study:</strong> {{ personal_info.year_of_study }}</p>
+                <p><strong>Phone Number:</strong> {{ personal_info.phone_no }}</p>
+                <p><strong>Gender:</strong> {{ personal_info.gender }}</p>
+                <p><strong>Date of Birth:</strong> {{ personal_info.dob }}</p>
+                <p><strong>District:</strong> {{ personal_info.district }}</p>
+                <p><strong>State:</strong> {{ personal_info.state }}</p>
+            </div>
+        </div>
+
+        <div class="user-room-preferences">
+            <h2>User Room Preferences</h2>
+            <div>
+                <p><strong>Accommodation Type:</strong> {{ room_preferences.accommodation_type }}</p>
+                <p><strong>Preferred Location:</strong> {{ room_preferences.preferred_location }}</p>
+                <p><strong>Rent Budget:</strong> {{ room_preferences.rent_budget }}</p>
+                <p><strong>Number of Roommates:</strong> {{ room_preferences.num_roommates }}</p>
+                <p><strong>BHK:</strong> {{ room_preferences.bhk }}</p>
+                <p><strong>Amenity 1:</strong> {{ room_preferences.amenity1 }}</p>
+                <p><strong>Amenity 2:</strong> {{ room_preferences.amenity2 }}</p>
+                <p><strong>Amenity 3:</strong> {{ room_preferences.amenity3 }}</p>
+            </div>
+        </div>
+
+        <div class="user-roommate-preferences">
+            <h2>User Roommate Preferences</h2>
+            <div>
+                <p><strong>Age Range:</strong> {{ roommate_preferences.age_range }}</p>
+                <p><strong>Gender Preference:</strong> {{ roommate_preferences.gender_preference }}</p>
+                <p><strong>Degree Preference:</strong> {{ roommate_preferences.degree_preference }}</p>
+                <p><strong>Accommodation Type Preference:</strong> {{ roommate_preferences.accommodation_type_preference }}</p>
+                <p><strong>Personality Preference:</strong> {{ roommate_preferences.personality_preference }}</p>
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <h2>User Profile</h2>
+            <div>
+                <img class="profile-picture" src="{{ url_for('static', filename='images/user_profile_picture.jpg') }}" alt="Profile Picture">
+                <p class="profile-picture-caption">Profile Picture</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

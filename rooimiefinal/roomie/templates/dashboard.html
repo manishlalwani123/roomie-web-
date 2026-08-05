@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .signout-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the User Dashboard</h1>
+    
+    <h2>User Profile</h2>
+    <table id="profile_table">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Roommate Preferences</h2>
+    <table id="roommate_table">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Room Preferences</h2>
+    <table id="room_table">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Signout Button -->
+    <button class="signout-btn" onclick="signout()">Sign Out</button>
+
+    <!-- Include JavaScript to fetch data and update HTML elements -->
+    <script>
+        window.onload = function() {
+            fetch('/fetch_data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    updateTable('profile_table', data.profile);
+                    updateTable('roommate_table', data.roommatePreferences);
+                    updateTable('room_table', data.roomPreferences);
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function updateTable(tableId, data) {
+            const table = document.getElementById(tableId).getElementsByTagName('tbody')[0];
+            for (const key in data) {
+                const row = table.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                cell1.textContent = key;
+                cell2.textContent = data[key];
+            }
+        }
+
+        function signout() {
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+</html>

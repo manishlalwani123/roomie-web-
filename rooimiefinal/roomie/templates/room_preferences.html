@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='1.css') }}">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/17035c377c.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav a {
+      padding: 30px;
+      text-decoration: none;
+    }
+</style>
+<body style="margin-top:3px; background-image: linear-gradient(skyblue, #163760);">
+    <nav>
+        <a href="#"><b>LOGO</b></a>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Contact Us</a>
+        <a href="{{url_for('signup')}}"><button id="signup-btn">Sign Up</button></a>
+      </nav>
+
+      <div class="login-form" style="background-color: white; height: 550px; width: 500px; padding-top: 10px; padding-left: 50px; padding-right: 50px; border-radius: 30px;padding-bottom:10px">
+        <h2 style="color: #163760;"><center>ROOM PREFERENCES</center></h2>
+        <form action="/room_preferences" method="POST">
+            <div style="margin-top: 16px; display: flex; align-items: center;">
+                <label for="" style="color: rgb(86, 83, 83); flex: 1;">Type of Accommodation:</label>
+                <label for="" style="color: rgb(86, 83, 83); flex: 1;">Preferred Location:</label>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <select name="accommodation_type" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);">
+                    <option value="">Select</option> <!-- Blank option -->
+                    <option value="shared_room">PG</option>
+                    <option value="private_room">FLAT</option>
+                    <option value="apartment">Others</option>
+                </select>
+                <input type="text" name="preferred_location" style="flex: 1; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            </div>
+            <div style="margin-top: 16px; display: flex; align-items: center;">
+                <label for="" style="color: rgb(86, 83, 83); flex: 1;">Rent budget:</label>
+                <label for="" style="color: rgb(86, 83, 83); flex: 1;">No. of roommates:</label>
+                <label for="" style="color: rgb(86, 83, 83); flex: 1;">BHK:</label>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <input type="text" name="rent_budget" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+                <input type="number" name="num_roommates" style="flex: 1; margin-right: 10px; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+                <input type="text" name="bhk" style="flex: 1; width: 70px; height: 40px; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder="">
+            </div>
+        <div style="margin-top: 16px;">
+            <label for="" style="color: rgb(86, 83, 83);">Amenities Preferences:</label>
+        </div>
+        <br>
+        <div style="display: flex;">
+            <div style="flex: 1;">
+                <input type="checkbox" id="amenity1" name="amenity1">
+                <label for="amenity1">AC/Cooler</label><br>
+                <input type="checkbox" id="amenity2" name="amenity2">
+                <label for="amenity2">Furnished</label><br>
+                <input type="checkbox" id="amenity3" name="amenity3">
+                <label for="amenity3">Parking Availability</label>
+            </div>
+            <div style="flex: 1;">
+                <input type="checkbox" id="amenity4" name="amenity4">
+                <label for="amenity4">Laundry facilities</label><br>
+                <input type="checkbox" id="amenity5" name="amenity5">
+                <label for="amenity5">Internet/Wi-fi availability</label><br>
+                <input type="checkbox" id="amenity6" name="amenity6">
+                <label for="amenity6">Common area amentities</label>
+            </div>
+        </div>
+        <br>
+        <div style="margin-top: 16px;">
+            <label for="" style="color: rgb(86, 83, 83);">Write about any other requirement:</label>
+            <br>
+            <textarea name="other_requirements" rows="4" style="width: 100%; border-radius: 5px; border-color: black; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);" placeholder=""></textarea>
+        </div>
+        <br>
+        <div style="margin-top: 20px; text-align: right;">
+            <button type="submit" style="background-color: #163760; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Next</button>
+        </div>
+    </form>
+</div>
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
