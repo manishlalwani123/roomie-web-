@@ -1,26 +1,32 @@
 import os
-
 import mysql.connector
 from flask import Flask, redirect, render_template, request, session, url_for
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = r"C:\Users\MANISH\Desktop\rooimiefinal\roomie\uploads"
+# -------------------------
+# Upload Configuration
+# -------------------------
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+# -------------------------
+# Environment Variables
+# -------------------------
+MYSQL_HOST = os.environ.get("MYSQL_HOST")
+MYSQL_USER = os.environ.get("MYSQL_USER")
+MYSQL_PASSWORD = os.environ.get("MYSQL_PASSWORD")
+MYSQL_DB = os.environ.get("MYSQL_DB")
+SECRET_KEY = os.environ.get("SECRET_KEY", "your_secret_key")
 
-
-
-
-# Configuration
-MYSQL_HOST = 'localhost'
-MYSQL_USER = 'root'
-MYSQL_PASSWORD = 'Manish@123'
-MYSQL_DB = 'FINAL'
-SECRET_KEY = 'your_secret_key'
-
+# -------------------------
+# Flask App
+# -------------------------
 app = Flask(__name__)
-app.config['SECRET_KEY'] = SECRET_KEY
+
+app.config["SECRET_KEY"] = SECRET_KEY
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 def create_connection():
     try:
@@ -118,16 +124,19 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def save_profile_picture(file):
-    if file.filename == '':
-        return None  # No file selected
+    if file.filename == "":
+        return None
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file_path = os.path.join(UPLOAD_FOLDER, filename)
-        file.save(file_path)
-        return file_path  # Return the path where the file is saved
-    else:
-        return None  # File extension not allowed
+
+        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+
+        file.save(filepath)
+
+        return filename
+
+    return None  # File extension not allowed
 
 @app.route('/')
 def index():
